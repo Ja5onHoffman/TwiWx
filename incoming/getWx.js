@@ -19,27 +19,27 @@ var client = new twilio.RestClient(accountSid, authToken);
 var airport = null;
 
 router.route('/')
-		.post(function(request, response, next) {
-					getWeather(request.body.Body, request.body.From);
-					next();
-		})
+	.post(function(request, response, next) {
+		getWeather(request.body.Body, request.body.From);
+		next();
+	})
 
 function getWeather(arpt, number) {
-	rest.get(fxml_url + 'Metar', {
-		username: username,
-		password: apiKey,
-		query: {airport: arpt}
-	}).on('complete', function(data, response) {
-		if (response && response instanceof Error == false) {
-			client.sendMessage({
-				to: number,
-				from: +15174350318,
-				body: data["MetarResult"]
-			});
-		} else {
-				console.log("There was an error");
-		}
-	})
+ rest.get(fxml_url + 'Metar', {
+	 username: username,
+	 password: apiKey,
+	 query: {airport: arpt}
+ }).on('complete', function(data, response) {
+	 if (response && response instanceof Error == false) {
+		 client.sendMessage({
+			 to: number,
+			 from: +15174350318,
+			 body: data["MetarResult"]
+		 });
+	 } else {
+		 console.log("There was an error");
+	 }
+ })
 }
 
 module.exports = router;
