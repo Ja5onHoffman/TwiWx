@@ -3,4 +3,6 @@
 # environment variables
 .env
 
+# files
 .idea
+node_modules/
