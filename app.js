@@ -22,15 +22,3 @@ app.listen(3000, function(err) {
   }
 });
 
-
-// app.post('/message', function(request, response) {
-//     // Use the REST client to send a text message
-//     client.sendSms({
-//         to: request.param('to'),
-//         from: TWILIO_NUMBER,
-//         body: 'Have fun with your Twilio development!'
-//     }, function(err, data) {
-//         // When we get a response from Twilio, respond to the HTTP POST request
-//         response.send('Message is inbound!');
-//     });
-// });
